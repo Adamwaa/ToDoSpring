@@ -7,6 +7,7 @@ Terminal:
 
     mvn clean package
     mvn spring-boot:run
+    url: lhost:8080/
 
 Technologies used in the project:
 
