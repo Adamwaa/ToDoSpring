@@ -20,7 +20,7 @@ Technologies used in the project:
     REST
     H2 Console: http://localhost:8080/h2-console
       
- Spring Initializr 
+ Spring Initializer 
  Spring Dependencies:
 
     Spring Web
