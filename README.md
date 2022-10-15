@@ -6,7 +6,7 @@ ToDoSpring is expading ToDoList project.
 Terminal:
 
     ./mvnw clean package
-    ./mvn spring-boot:run
+    ./mvnw spring-boot:run
     url: localhost:8080/
 
 Technologies used in the project:
