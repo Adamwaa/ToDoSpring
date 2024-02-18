@@ -1,10 +1,11 @@
-package io.github.Adam.todo;
+package io.github.Adam.repository;
 
+import io.github.Adam.todo.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
+public
 interface TodoRepository extends JpaRepository<Todo, Integer> {
-
 
 }

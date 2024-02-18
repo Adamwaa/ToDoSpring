@@ -55,12 +55,10 @@
         const todoText = document.getElementById('todoText');
 
         fetch(TODO_API_URL)
-            //metoda pomocnicza jest wywywolywana przy pierwszym pobraniu todosow
+
             .then(processOkResponse)
             //dla kazdego todos tworzony nowy todo
             .then(todos => todos.forEach(createNewTodo));
-        //dla przycisku addTodo jest tworzona akcja klikniecie i na to klikniecie jesty wysylana metoda POST
-        // z hederami z wartopscia jsonowa text todoText.value
         document.getElementById('addTodo').addEventListener('click', (event) => {
             event.preventDefault();
             fetch(TODO_API_URL, {
@@ -100,13 +98,19 @@
             deleteButton.innerText = '🗑️';
             deleteButton.style.cursor = 'pointer';
             deleteButton.style.marginLeft = '2em';
-            deleteButton.onclick = (event) => {
-                event.preventDefault();
-                fetch(`${TODO_API_URL}/${todo.id}`, { method: 'DELETE' })
-                    .then(processOkResponse)
-                    .then(() => label.remove())
-                    .catch(console.warn);
+   deleteButton.onclick = (event) => {
+    event.preventDefault();
+    fetch(`${TODO_API_URL}/${todo.id}`, { method: 'DELETE' })
+        .then(response => {
+            if (response.ok) {
+                label.remove();
+                fetchTodos();
+            } else {
+                 console.error('Failed to delete the todo item.');
             }
+        })
+        .catch(error => console.error('Error:', error));
+};
             label.appendChild(deleteButton);
             document.getElementById('allTodos').appendChild(label);
         }

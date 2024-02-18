@@ -6,6 +6,5 @@ create table todos (
                            done bit
 );
 
-insert into todos (text, done) values ( 'Done todo',1);
-insert into todos (text, done) values ( 'Done todo',2);
+insert into todos (text, done) values ( 'Test Task',1);
 
